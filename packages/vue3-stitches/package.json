@@ -1,0 +1,61 @@
+{
+  "name": "vue3-stitches",
+  "version": "0.0.0",
+  "description": "TODO",
+  "publishConfig": {
+    "directory": "package"
+  },
+  "keywords": [
+    "vue",
+    "stitches"
+  ],
+  "homepage": "https://github.com/wobsoriano/vue3-stitches#readme",
+  "bugs": {
+    "url": "https://github.com/wobsoriano/vue3-stitches/issues"
+  },
+  "license": "MIT",
+  "author": "Robert Soriano <sorianorobertc@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wobsoriano/vue3-stitches.git"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build": "pnpm run build-fast -- --dts-resolve",
+    "dev": "pnpm run build -- --watch",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "prepublishOnly": "rimraf ./package && pnpm run build && clean-publish",
+    "postpublish": "rimraf ./package",
+    "typecheck": "tsc"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@stitches/core": "^1.2.8",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.24",
+    "bumpp": "^7.1.1",
+    "clean-publish": "^4.0.0",
+    "rimraf": "^3.0.2",
+    "tsup": "^5.12.6",
+    "typescript": "^4.5.4"
+  },
+  "clean-publish": {
+    "withoutPublish": true,
+    "tempDir": "package"
+  }
+}
