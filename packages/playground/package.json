@@ -9,8 +9,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "vue3-stitches": "workspace:*",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue3-stitches": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",

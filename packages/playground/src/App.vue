@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { createStitches } from 'vue3-stitches'
+import type { VariantProps } from 'vue3-stitches'
 
-const { styled } = createStitches()
+const { styled, css } = createStitches()
 
-const Button = styled('button', {
+const Btn = styled('button', {
   variants: {
-    color: {
+    colour: {
       violet: {
         'backgroundColor': 'blueviolet',
         'color': 'red',
@@ -22,10 +23,14 @@ const Button = styled('button', {
     },
   },
 })
+
+type ASD = VariantProps<typeof Btn>
+
+type ZXC = ASD['colour']
 </script>
 
 <template>
-  <Button color="violet">
+  <Btn>
     Hello
-  </Button>
+  </Btn>
 </template>
