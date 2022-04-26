@@ -134,5 +134,3 @@ export const createStitches = <Prefix extends string = string,
     styled,
   }
 }
-
-// export function styled(...args: Parameters<VueStitches['styled']>): ReturnType<VueStitches['styled']>
