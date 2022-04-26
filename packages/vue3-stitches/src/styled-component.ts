@@ -6,42 +6,56 @@ import type { IntrinsicElementAttributes } from './types'
 
 export type IntrinsicElementsKeys = keyof IntrinsicElementAttributes
 
-type Component = Vue.Component | Vue.DefineComponent
-
 export type StyledComponent<
   Type extends keyof IntrinsicElementAttributes = 'span',
   Props = {},
   Media = {},
   CSS = {},
 > = Vue.DefineComponent<
-{},
-{},
-{},
-{},
-{},
-Vue.ComponentOptionsMixin,
-Vue.ComponentOptionsMixin,
-Vue.EmitsOptions,
-string,
-Vue.VNodeProps & Vue.AllowedComponentProps & Vue.ComponentCustomProps,
-Vue.ExtractPropTypes<
-  Vue.Prop<Record<string, unknown>>
->
-& IntrinsicElementAttributes[Type]
-& TransformProps<Props, Media> & { css?: CSS }
+  {},
+  {},
+  {},
+  {},
+  {},
+  Vue.ComponentOptionsMixin,
+  Vue.ComponentOptionsMixin,
+  Vue.EmitsOptions,
+  string,
+  Vue.VNodeProps & Vue.AllowedComponentProps & Vue.ComponentCustomProps,
+  Vue.ExtractPropTypes<Vue.Prop<Record<string, unknown>>> &
+  IntrinsicElementAttributes[Type] &
+  TransformProps<Props, Media> & { css?: CSS }
 > & {
+  className: string
+  selector: string
+
+  [$$StyledComponentType]: Type
+  [$$StyledComponentProps]: Props
+  [$$StyledComponentMedia]: Media
+}
+
+/** Returns a new CSS Component. */
+export interface CssComponent<
+  Type = 'span',
+  Props = {},
+  Media = {},
+  CSS = {},
+> {
   (
-    props?: Util.Assign<Vue.ExtractPropTypes<
-    Vue.Prop<Record<string, unknown>>
-  > &
-    Type extends IntrinsicElementsKeys ? IntrinsicElementAttributes['span'] : never, & TransformProps<Props, Media>
+    props?:
+    & TransformProps<Props, Media>
     & {
       css?: CSS
     }
     & {
       [name in number | string]: any
-    }>
-  ): Component
+    }
+  ): string & {
+    className: string
+    selector: string
+    props: {}
+  }
+
   className: string
   selector: string
 
