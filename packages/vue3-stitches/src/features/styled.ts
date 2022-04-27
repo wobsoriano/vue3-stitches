@@ -6,7 +6,6 @@ import type Stitches from '@stitches/core/types/stitches'
 import { createStitches as createStitchesCore } from '@stitches/core'
 import { defineComponent, h } from 'vue'
 import type * as StyledComponent from './styled-component'
-import type { IntrinsicElementAttributes } from './types'
 
 export interface EmptyObject {}
 
@@ -14,7 +13,7 @@ export interface VueStitches <Prefix extends string = '', Media = EmptyObject, T
   Stitches<Prefix, Media, Theme, ThemeMap, Utils> {
   styled: {
     <
-      Type extends keyof IntrinsicElementAttributes,
+      Type extends keyof StyledComponent.IntrinsicElementAttributes,
       Composers extends (
         | string
         | Util.Function
