@@ -1,5 +1,5 @@
 import { createStitches } from '../create-stitches'
 
-let cachedConfig: unknown
+let cachedConfig: any
 
 export const getCachedConfig = () => cachedConfig || (cachedConfig = createStitches())
