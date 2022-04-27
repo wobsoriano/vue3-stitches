@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable @typescript-eslint/no-redeclare */
 import type * as Util from '@stitches/core/types/util'
 import type * as Vue from 'vue'
 
