@@ -6,9 +6,8 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   external: [
     'vue',
-    '@stitches/core',
-    /stitches\/core\/types\/.*/,
+    /stitches\/core\/.*/,
   ],
   dts: true,
-  minify: true,
+  minify: false,
 })
