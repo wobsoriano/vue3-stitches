@@ -3,8 +3,8 @@ import type * as Vue from 'vue'
 
 export type IntrinsicElementsKeys = keyof IntrinsicElementAttributes
 
-declare type __VLS_NonUndefinedable<T> = T extends undefined ? never : T
-declare type __VLS_TypePropsToRuntimeProps<T> = {
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T
+type __VLS_TypePropsToRuntimeProps<T> = {
   [K in keyof T]-?: {} extends Pick<T, K> ? {
     type: Vue.PropType<__VLS_NonUndefinedable<T[K]>>
   } : {
@@ -18,8 +18,9 @@ export type StyledComponent<
   Props = {},
   Media = {},
   CSS = {},
+  InnerProps = {},
 > = Vue.DefineComponent<
-  __VLS_TypePropsToRuntimeProps<TransformProps<Props, Media> & { css?: CSS }>,
+  __VLS_TypePropsToRuntimeProps<TransformProps<Util.Assign<InnerProps, Props>, Media> & { css?: CSS }>,
   {},
   unknown,
   {},
@@ -30,7 +31,7 @@ export type StyledComponent<
   string,
   Vue.VNodeProps & Vue.AllowedComponentProps & Vue.ComponentCustomProps,
   Vue.ExtractPropTypes<
-    __VLS_TypePropsToRuntimeProps<TransformProps<Props, Media> & { css?: CSS }>
+    __VLS_TypePropsToRuntimeProps<TransformProps<Util.Assign<InnerProps, Props>, Media> & { css?: CSS }>
   > &
   (Type extends IntrinsicElementsKeys
     ? IntrinsicElementAttributes[Type]

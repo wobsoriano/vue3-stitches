@@ -33,7 +33,7 @@ export interface VueStitches<
           // Strings, Vue Components, and Functions can be skipped over
           string extends Composers[K]
             ? Composers[K]
-            : Composers[K] extends string| Util.Function
+            : Composers[K] extends string | Vue.Component | Util.Function
               ? Composers[K]
               : RemoveIndex<CSS> & {
                 /** The **variants** property lets you set a subclass of styles based on a key-value pair.
@@ -85,7 +85,8 @@ export interface VueStitches<
       Type,
       StyledComponent.StyledComponentProps<Composers>,
       Media,
-      CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+      CSSUtil.CSS<Media, Theme, ThemeMap, Utils>,
+      Type extends StyledComponent.StyledComponent<any, infer IP, any, any> ? IP : {}
     >
   }
 }

@@ -19,25 +19,30 @@ const BaseButton = styled('button', {
         },
       },
     },
-  },
-})
-
-const CheckoutButton = styled(BaseButton, {
-  variants: {
-    colour: {
-      red: {
-        'backgroundColor': 'red',
-        '&:hover': {
-          backgroundColor: 'white',
-        },
+    size: {
+      small: {
+        fontSize: '13px',
+        height: '25px',
+        paddingRight: '10px',
+        paddingLeft: '10px',
+      },
+      large: {
+        fontSize: '15px',
+        height: '35px',
+        paddingLeft: '15px',
+        paddingRight: '15px',
       },
     },
   },
 })
+
+const CheckoutButton = styled(BaseButton, {
+  // variants: {},
+})
 </script>
 
 <template>
-  <CheckoutButton colour="red" :css="{}">
+  <CheckoutButton colour="violet">
     Hello
   </CheckoutButton>
 </template>

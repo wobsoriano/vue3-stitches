@@ -22,6 +22,7 @@ export const Extended = defineComponent({
       required: true,
     },
   },
+  emits: ['hello', 'world'],
   setup() {
     return () => h(Base, {
       color: 'red',
