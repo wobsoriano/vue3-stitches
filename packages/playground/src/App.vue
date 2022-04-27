@@ -5,7 +5,7 @@ const { styled } = createStitches()
 
 const BaseButton = styled('button', {
   variants: {
-    colour: {
+    color: {
       violet: {
         'backgroundColor': 'blueviolet',
         '&:hover': {
@@ -19,38 +19,12 @@ const BaseButton = styled('button', {
         },
       },
     },
-    size: {
-      small: {
-        fontSize: '13px',
-        height: '25px',
-        paddingRight: '10px',
-        paddingLeft: '10px',
-      },
-      large: {
-        fontSize: '15px',
-        height: '35px',
-        paddingLeft: '15px',
-        paddingRight: '15px',
-      },
-    },
   },
-})
-
-const CheckoutButton = styled(BaseButton, {
-  // variants: {},
 })
 </script>
 
 <template>
-  <Button
-    :css="{
-      borderRadius: '0',
-      '&:hover': {
-        backgroundColor: 'black',
-        color: 'white'
-      }
-    }"
-  >
+  <BaseButton color="gray">
     Button
-  </Button>
+  </BaseButton>
 </template>
