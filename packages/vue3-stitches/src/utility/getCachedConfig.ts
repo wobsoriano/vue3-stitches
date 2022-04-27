@@ -1,4 +1,4 @@
-import { createStitches } from '../features/styled'
+import { createStitches } from '../create-stitches'
 
 let cachedConfig: any
 

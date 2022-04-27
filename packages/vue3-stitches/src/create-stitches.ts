@@ -90,7 +90,8 @@ export const createStitches = <Prefix extends string = string,
     return defineComponent({
       setup(_props, { slots, attrs }) {
         return () => {
-          const classes = [result(attrs).className]
+          const { className } = result(attrs)
+          const classes = [className]
 
           return h(tag, {
             class: classes,
