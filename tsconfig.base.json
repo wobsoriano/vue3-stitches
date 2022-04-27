@@ -13,6 +13,7 @@
     "lib": [
       "DOM",
       "ESNext"
-    ]
+    ],
+    "skipLibCheck": true
   }
 }
