@@ -35,7 +35,43 @@ import { Button } from './button'
 </script>
 
 <template>
-  <Button color="violet">
+  <Button>Button</Button>
+</template>
+```
+
+## Available function
+
+```ts
+import {
+  createTheme,
+  css,
+  getCssText,
+  globalCss,
+  keyframes,
+  styled,
+  theme,
+} from 'vue3-stitches'
+```
+
+## Overriding Styles
+
+```vue
+<script setup>
+import { styled } from 'vue3-stitches'
+
+const Button = styled('button', {})
+</script>
+
+<template>
+  <Button
+    :css="{
+      borderRadius: '0',
+      '&:hover': {
+        backgroundColor: 'black',
+        color: 'white'
+      }
+    }"
+  >
     Button
   </Button>
 </template>

@@ -42,7 +42,15 @@ const CheckoutButton = styled(BaseButton, {
 </script>
 
 <template>
-  <CheckoutButton colour="violet">
-    Hello
-  </CheckoutButton>
+  <Button
+    :css="{
+      borderRadius: '0',
+      '&:hover': {
+        backgroundColor: 'black',
+        color: 'white'
+      }
+    }"
+  >
+    Button
+  </Button>
 </template>

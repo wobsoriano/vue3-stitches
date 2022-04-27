@@ -1,4 +1,6 @@
+import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
+import { createStitches } from './create-stitches'
 
 const Base = defineComponent({
   props: {
@@ -14,18 +16,17 @@ const Base = defineComponent({
   },
 })
 
-export const Extended = defineComponent({
-  extends: Base,
+type ButtonInstance = InstanceType<typeof Base>
+
+// defineProps<{
+//   label: ButtonInstance['$props']['label'] | number
+// }>()
+
+export const Modal = defineComponent({
+  name: 'Modal',
   props: {
-    bgColor: {
-      type: String,
-      required: true,
+    label: {
+      type: [String, Number] as PropType<ButtonInstance['$props']['color'] | number>,
     },
-  },
-  emits: ['hello', 'world'],
-  setup() {
-    return () => h(Base, {
-      color: 'red',
-    })
   },
 })
