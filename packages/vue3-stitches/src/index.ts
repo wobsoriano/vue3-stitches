@@ -4,7 +4,7 @@ import { getCachedConfig } from './utility/getCachedConfig'
 import type { VueStitches } from './create-stitches'
 import type * as StyledComponent from './styled-component'
 
-export { $$PropertyValue, $$ScaleValue, $$ThemeValue } from '@stitches/core/types/css-util'
+export { $$PropertyValue, $$ScaleValue, $$ThemeValue } from '@stitches/core'
 export type CreateStitches = Config.CreateStitches
 export type CSSProperties = CSSUtil.CSSProperties
 export type DefaultThemeMap = Config.DefaultThemeMap

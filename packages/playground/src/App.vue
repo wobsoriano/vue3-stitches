@@ -23,16 +23,10 @@ const Btn = styled('button', {
     },
   },
 })
-
-type Variants = ComponentProps<typeof Btn>
-
-defineProps<{
-  colour: Variants['colour']
-}>()
 </script>
 
 <template>
-  <Btn>
+  <Btn :css="{ marginTop: 200 }">
     Hello
   </Btn>
 </template>
