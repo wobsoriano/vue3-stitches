@@ -26,7 +26,7 @@ const Btn = styled('button', {
 </script>
 
 <template>
-  <Btn :css="{ marginTop: 200 }">
+  <Btn colour="violet">
     Hello
   </Btn>
 </template>

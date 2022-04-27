@@ -10,4 +10,5 @@ export default defineConfig({
     /stitches\/core\/types\/.*/,
   ],
   dts: true,
+  minify: true,
 })
