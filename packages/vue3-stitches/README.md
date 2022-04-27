@@ -39,7 +39,7 @@ import { Button } from './button'
 </template>
 ```
 
-## Available function
+## Available functions
 
 ```ts
 import {
@@ -51,6 +51,53 @@ import {
   styled,
   theme,
 } from 'vue3-stitches'
+```
+
+## Configure Stitches
+
+To configure Stitches, create a `stitches.config.ts` file (`.js` works too) and import the `createStitches` function.
+
+```ts
+// stitches.config.ts
+import { createStitches } from 'vue3-stitches'
+
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme,
+  config,
+} = createStitches({
+  theme: {
+    colors: {
+      gray400: 'gainsboro',
+      gray500: 'lightgray',
+    },
+  },
+  media: {
+    bp1: '(min-width: 480px)',
+  },
+  utils: {
+    marginX: value => ({ marginLeft: value, marginRight: value }),
+  },
+})
+```
+
+From this point onwards, you'll be importing `styled` and other functions from `stitches.config`.
+
+```vue
+<script setup>
+import { styled } from 'path-to/stitches.config'
+
+const Button = styled('button', {})
+</script>
+
+<template>
+  <Button>Button</Button>
+</template>
 ```
 
 ## Overriding Styles
@@ -74,6 +121,31 @@ const Button = styled('button', {})
   >
     Button
   </Button>
+</template>
+```
+
+## Composing Components
+
+```vue
+<script setup>
+import { styled } from 'vue3-stitches'
+
+const BaseButton = styled('button', {})
+
+const CheckoutButton = styled(BaseButton, {
+  'borderRadius': 0,
+  'backgroundColor': 'hotpink',
+  'color': 'white',
+  '&:hover': {
+    backgroundColor: 'deeppink',
+  },
+})
+
+</script>
+
+<template>
+  <BaseButton>Base button</BaseButton>
+  <CheckoutButton>Checkout button</CheckoutButton>
 </template>
 ```
 
