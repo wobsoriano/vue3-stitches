@@ -82,3 +82,7 @@ export const css: VueStitches['css'] = (...args: any[]) => getCachedConfig().css
 
 /** Returns a function that applies styles and variants for a specific class. */
 export const styled: VueStitches['styled'] = (...args: any[]) => getCachedConfig().styled(...args)
+
+export {
+  Extended,
+} from './test'

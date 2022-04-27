@@ -3,15 +3,25 @@ import type * as Vue from 'vue'
 
 export type IntrinsicElementsKeys = keyof IntrinsicElementAttributes
 
+declare type __VLS_NonUndefinedable<T> = T extends undefined ? never : T
+declare type __VLS_TypePropsToRuntimeProps<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? {
+    type: Vue.PropType<__VLS_NonUndefinedable<T[K]>>
+  } : {
+    type: Vue.PropType<T[K]>
+    required: true
+  };
+}
+
 export type StyledComponent<
-  Type extends keyof IntrinsicElementAttributes = 'span',
+  Type extends IntrinsicElementsKeys | Vue.Component | Util.Function = 'span',
   Props = {},
   Media = {},
   CSS = {},
 > = Vue.DefineComponent<
+  __VLS_TypePropsToRuntimeProps<TransformProps<Props, Media> & { css?: CSS }>,
   {},
-  {},
-  {},
+  unknown,
   {},
   {},
   Vue.ComponentOptionsMixin,
@@ -19,9 +29,13 @@ export type StyledComponent<
   Vue.EmitsOptions,
   string,
   Vue.VNodeProps & Vue.AllowedComponentProps & Vue.ComponentCustomProps,
-  Vue.ExtractPropTypes<Vue.Prop<Record<string, unknown>>> &
-  IntrinsicElementAttributes[Type] &
-  TransformProps<Props, Media> & { css?: CSS }
+  Vue.ExtractPropTypes<
+    __VLS_TypePropsToRuntimeProps<TransformProps<Props, Media> & { css?: CSS }>
+  > &
+  (Type extends IntrinsicElementsKeys
+    ? IntrinsicElementAttributes[Type]
+    : {}),
+  {}
 > & {
   className: string
   selector: string
