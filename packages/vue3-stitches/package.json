@@ -40,7 +40,8 @@
     "typecheck": "tsc"
   },
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "@stitches/core": ">= 1.1.0",
+    "vue": ">= 3.2.0"
   },
   "dependencies": {
     "@stitches/core": "^1.2.8",
