@@ -8,7 +8,8 @@
     "preview": "turbo run preview",
     "playground:deploy": "turbo run build --scope=playground --include-dependencies --no-deps",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.20.2",

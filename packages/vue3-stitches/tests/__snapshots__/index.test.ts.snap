@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`createStitches Vue > basic component 1`] = `"<h1 class=\\"c-gmqXFB\\"></h1>"`;
+
+exports[`createStitches Vue > breakpoints in variants 1`] = `"<button class=\\"c-fxmqx\\">no variant</button>"`;
+
+exports[`createStitches Vue > breakpoints in variants and when a responsive variant is passed to the component 1`] = `"<button class=\\"c-fxmqx c-fxmqx-ghTNOb-size-small\\" size=\\"[object Object]\\">with responsive variant</button>"`;
+
+exports[`createStitches Vue > breakpoints in variants and when variant is passed to the component 1`] = `"<button class=\\"c-fxmqx c-fxmqx-keNwTR-size-big\\" size=\\"big\\">with variant</button>"`;
+
+exports[`createStitches Vue > component with variant 1`] = `"<div><button class=\\"c-dmZJpl\\">A button!</button><button class=\\"c-dmZJpl c-dmZJpl-dkEfkH-variant-red\\" variant=\\"red\\">A button!</button><button class=\\"c-dmZJpl c-dmZJpl-fNnBJi-variant-blue\\" variant=\\"blue\\">A button!</button></div>"`;
+
+exports[`createStitches Vue > compound variant 1`] = `"<div><button class=\\"c-dmZJpl c-dmZJpl-dkEfkH-variant-red c-dmZJpl-dQBkOa-size-2\\" variant=\\"red\\" size=\\"2\\">not compound</button><button class=\\"c-dmZJpl c-dmZJpl-dkEfkH-variant-red c-dmZJpl-fbRMjr-size-1\\" variant=\\"red\\" size=\\"1\\">compound</button></div>"`;
+
+exports[`createStitches Vue > css prop 1`] = `"<button class=\\"c-dmZJpl c-dmZJpl-igmqXFB-css\\" css=\\"[object Object]\\">A button!</button>"`;
