@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { createStitches } from 'vue3-stitches'
+import { styled } from 'vue3-stitches'
 
-const { styled } = createStitches()
-
-const BaseButton = styled('button', {
+const Button = styled('button', {
   variants: {
     color: {
       violet: {
         'backgroundColor': 'blueviolet',
+        'color': 'white',
         '&:hover': {
           backgroundColor: 'darkviolet',
         },
@@ -24,7 +23,7 @@ const BaseButton = styled('button', {
 </script>
 
 <template>
-  <BaseButton color="gray">
+  <Button color="violet">
     Button
-  </BaseButton>
+  </Button>
 </template>
