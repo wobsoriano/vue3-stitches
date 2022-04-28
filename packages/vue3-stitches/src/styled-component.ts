@@ -22,12 +22,12 @@ export type StyledComponent<
 > = Vue.DefineComponent<
   __VLS_TypePropsToRuntimeProps<TransformProps<Util.Assign<InnerProps, Props>, Media> & { css?: CSS }>,
   {},
-  unknown,
   {},
-  {},
+  Vue.ComputedOptions,
+  Vue.MethodOptions,
   Vue.ComponentOptionsMixin,
   Vue.ComponentOptionsMixin,
-  Vue.EmitsOptions,
+  Record<string, any>,
   string,
   Vue.VNodeProps & Vue.AllowedComponentProps & Vue.ComponentCustomProps,
   Vue.ExtractPropTypes<
