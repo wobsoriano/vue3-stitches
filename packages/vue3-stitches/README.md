@@ -149,6 +149,27 @@ const CheckoutButton = styled(BaseButton, {
 </template>
 ```
 
+## Server-Side Rendering
+
+You can get access to the CSS string by using the `getCssText` function. This function is made available by the `createStitches` function.
+
+Here's an example of SSR with Nuxt 3
+
+```vue
+<script setup lang="ts">
+import { getCssText } from '~/stitches.config'
+</script>
+
+<template>
+  <div>
+    <Head>
+      <Style id="stitches" :children="getCssText()" />
+    </Head>
+    <NuxtPage />
+  </div>
+</template>
+```
+
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
