@@ -108,10 +108,18 @@ export const createStitches = <Prefix extends string = string,
   const styled = (tagOrComponent: any, composers: any) => {
     const result = css(composers)
 
+    const propsFromVariants: Record<string, any> = {}
+    Object.keys(composers.variants || {}).forEach((key) => {
+      propsFromVariants[key] = {
+        type: String,
+      }
+    })
+
     return defineComponent({
-      setup(_props, { slots, attrs }) {
+      props: propsFromVariants,
+      setup(props, { slots }) {
         return () => {
-          const { className } = result(attrs)
+          const { className } = result(props)
           const classes = [className]
 
           return h(tagOrComponent, {

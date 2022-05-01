@@ -23,7 +23,7 @@ const Button = styled('button', {
 </script>
 
 <template>
-  <Button color="violet">
+  <Button color="gray">
     Button
   </Button>
 </template>
